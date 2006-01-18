@@ -1,0 +1,8 @@
+blinking cursor
+source file for scripting language
+syntax highlighting
+visual mode
+mouse support
+undo/redo memory usage
+autoindent
+separate keystrokes from commands

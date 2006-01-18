@@ -1,0 +1,45 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>EditorUI</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>EditorUI</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>480</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Editor</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QTextEdit">
+                    <property name="name">
+                        <cstring>editor</cstring>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLineEdit">
+            <property name="name">
+                <cstring>command_editor</cstring>
+            </property>
+        </widget>
+    </vbox>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
