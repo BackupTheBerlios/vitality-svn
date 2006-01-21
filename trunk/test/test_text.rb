@@ -108,4 +108,35 @@ class TestText < Test::Unit::TestCase
 		test_text_invariant(t)
 		assert_equal("bye bye bro\nwe have three lines\nagain", t.text)
 	end
+
+	def test_remove_range() 
+		t = Text.new("we are going to\nremove a range\nfrom this text")
+		t.remove_range(0, 5, 2, 9)
+		test_text_invariant(t)
+		assert_equal("we ar text", t.text)
+
+		t.remove_range(0, 0, 0, 0)
+		test_text_invariant(t)
+		assert_equal("we ar text", t.text)
+		
+		t.remove_range(0, 0, 0, 1)
+		test_text_invariant(t)
+		assert_equal("e ar text", t.text)
+
+		t.text = "just try removing stuff but\nnot any lines"
+		test_text_invariant(t)
+		t.remove_range(0, 3, 0, 8)
+		test_text_invariant(t)
+		assert_equal("jus removing stuff but\nnot any lines", t.text)
+	end
+	
+	def test_index()
+		t = Text.new("hello and you are a head\nof a cheese and beef\nthis is nonsense")
+		assert_equal(0, t.index_of_position(0, 0))
+		assert_equal([0, 0], t.index_line_and_col(0))
+		assert_equal(1, t.index_of_position(0, 1))
+		assert_equal([0, 1], t.index_line_and_col(1))
+		assert_equal(1, t.index_of_position(0, 1))
+		assert_equal([0, 1], t.index_line_and_col(1))
+	end
 end

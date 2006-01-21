@@ -10,9 +10,7 @@ class Editor < EditorUI
 	def initialize(parent)
 		super(parent)
 		connect(@command_editor, SIGNAL('returnPressed()'), SLOT('execute_command()')) 
-		connect(@editor, SIGNAL('command_mode(QString*)'), SLOT('command_mode(QString*)'))
-
-		#@line_numbers.text = (1..20).to_a().map { |i| i.to_s }.join("\n")
+		connect(@editor, SIGNAL('to_command_mode(QString*)'), SLOT('command_mode(QString*)'))
 
 		@editor.set_focus()
 	end
@@ -50,8 +48,6 @@ class Editor < EditorUI
 		@editor.set_focus()
 	end
 end
-
-s = Qt::SizePolicy.new()
 
 a = Qt::Application.new(ARGV)
 w = Editor.new(nil)
